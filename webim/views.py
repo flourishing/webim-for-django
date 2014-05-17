@@ -1,12 +1,17 @@
+#!/usr/bin/env python
+#coding: utf-8
+
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.utils import simplejson
 
 # Create your views here.
 
 def index(request):
-    return 'ok'
+    return HttpResponse("ok")
 
 def boot(request):
-    return 'ok'
+    return jsonReply({'abc': u'你好'})
 
 def online(request):
     return 'ok'
@@ -62,6 +67,8 @@ def notifications(request):
 def upload(request):
     return 'ok'
 
+def jsonReply(data):
+    return HttpResponse(simplejson.dumps(data), content_type="application/json")
 
 
 
