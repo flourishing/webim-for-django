@@ -20,7 +20,7 @@ urlpatterns = patterns('webim.views',
     (r'^room/block$', 'block'),
     (r'^room/unblock$', 'unblock'),
     (r'^room/members$', 'members'),
-    (r'^notification$', 'notifications'),
+    (r'^notifications$', 'notifications'),
     (r'^upload$', 'upload')
 )
 
