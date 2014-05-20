@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 #coding: utf-8
 
+import time
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import simplejson
 from .plugin import Plugin
 from .models import Model
 from .client import Client
-import time
+from .setting import WEBIM_CONFIG
 
 # Create your views here.
 
