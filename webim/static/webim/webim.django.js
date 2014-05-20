@@ -23,8 +23,8 @@
 		status: path + "/webim/status",
 		setting: path + "/webim/setting",
 		history: path + "/webim/history",
-		clear: path + "/webim/history/clear",
-		download: path + "/webim/history/download",
+		clear: path + "/webim/clear_history",
+		download: path + "/webim/download_history",
 		buddies: path + "/webim/buddies",
         //room actions
 		invite: path + "/webim/room/invite",

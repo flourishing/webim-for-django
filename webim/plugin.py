@@ -22,19 +22,21 @@ class Plugin(object):
     @staticmethod
     def members(roomid):
         return []
-
-    @staticmethod
-    def notifications(uid):
-        #TODO
-        return []
-
     @staticmethod
     def rooms(uid):
         return []
 
     @staticmethod
+    def notifications(uid):
+        #TODO
+        return [{'text': 'Notification', 'link': '#'}]
+
+    @staticmethod
+    def menu(uid):
+        return []
+
+    @staticmethod
     def find_room(roomid):
         return None
-
 
 

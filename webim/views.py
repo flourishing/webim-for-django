@@ -12,9 +12,6 @@ from .setting import WEBIM_CONFIG
 
 # Create your views here.
 
-def current_uid(request):
-    return "1"
-
 def current_user(request):
     '''
     Demo User
@@ -22,6 +19,9 @@ def current_user(request):
     return {'id': 'uid1', 'nick': 'user1', 
             'show': 'available', 
             'pic_url': 'static/webim/images/male.png'}
+
+def current_uid(request):
+    return current_user(request)['id']
 
 def current_client(request):
     ticket = ''
@@ -93,13 +93,12 @@ def message(request):
     if send == 1:
         current_client(request).message(message) 
     if not body.startswith('webim-event:'): 
-        Model.insert_history(
-            message.update({
-                'send': send,
-                'from': user['id'],
-                'nick': user['nick']
-            })
-        )
+        message.update({
+            'send': send,
+            'from': user['id'],
+            'nick': user['nick']
+        })
+        Model.insert_history(message)
     return JsonResponse('ok')
 
 def presence(request):
@@ -119,7 +118,7 @@ def status(request):
 
 def setting(request):
     data = request.POST['data']
-    Model.setting(uid(request), data)
+    Model.setting(current_uid(request), data)
     return JsonResponse('ok')
 
 def history(request):
@@ -174,7 +173,7 @@ def invite(request):
         'id': room['name'],
         'nick': room['nick'],
         'temporary': True,
-        'pic_url': '#'
+        'pic_url': 'static/webim/images/room.png'
     })
 
 def join(request):
@@ -202,7 +201,7 @@ def leave(request):
 
 def members(request):
     members = []
-    roomid = request.POST['id']
+    roomid = request.GET['id']
     room = Plugin.find_room(roomid)
     if(room is not None):
         members = Plugin.members(roomid)
