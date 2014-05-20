@@ -2,7 +2,7 @@
  * WebIM for Django @VERSION
  * http://nextalk.im
  *
- * Copyright (c) 2013 NexTalk.IM
+ * Copyright (c) 2014 NexTalk.IM
  *
  * Released under the MIT, BSD, and GPL Licenses.
  */
