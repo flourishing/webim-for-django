@@ -12,7 +12,7 @@ class Model(object):
         return [{'id': room.name, 
                  'nick': room.nick, 
                  'url': room.url, 
-                 'pic_url': 'static/webim/room.png', 
+                 'avatar': 'static/webim/room.png', 
                  'temporary': True
                  } for room in rooms]
 

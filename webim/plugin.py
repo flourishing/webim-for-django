@@ -11,7 +11,7 @@ class Plugin(object):
                 'nick': 'user%d' % (i), 
                 'presence': 'offline', 
                 'show': 'unavailable', 
-                'pic_url': 'static/webim/images/male.png'
+                'avatar': 'static/webim/images/male.png'
                 }
         return [ buddy(i) for i in range(1, 11) ]
 

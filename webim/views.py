@@ -18,7 +18,7 @@ def current_user(request):
     '''
     return {'id': 'uid1', 'nick': 'user1', 
             'show': 'available', 
-            'pic_url': 'static/webim/images/male.png'}
+            'avatar': 'static/webim/images/male.png'}
 
 def current_uid(request):
     return current_user(request)['id']
@@ -173,7 +173,7 @@ def invite(request):
         'id': room['name'],
         'nick': room['nick'],
         'temporary': True,
-        'pic_url': 'static/webim/images/room.png'
+        'avatar': 'static/webim/images/room.png'
     })
 
 def join(request):
@@ -190,7 +190,7 @@ def join(request):
         'id': roomdid,
         'nick': nick,
         'temporary': true,
-        'pic_url': '#'
+        'avatar': '#'
     })
 
 def leave(request):
