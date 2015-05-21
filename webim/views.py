@@ -29,7 +29,7 @@ def current_client(request):
         ticket = request.GET['ticket']
     if 'ticket' in request.POST:
         ticket = request.POST['ticket']
-    return Client(current_user(request), 'localhost', 'public', ticket=ticket, host='localhost', port=8080)
+    return Client(current_user(request), WEBIM_CONFIG['domain'], WEBIM_CONFIG['apikey'], ticket=ticket, host=WEBIM_CONFIG['host'], port=WEBIM_CONFIG['port'])
 
 def index(request):
     return HttpResponse("ok")

@@ -4,7 +4,7 @@ WEBIM_CONFIG = {
     'isopen': True,
     'domain': 'localhost',
     'apikey': 'public',
-    'host': 'localhost',
+    'host': 't.nextalk.im',
     'port': 8000,
     'emot': 'default',
     'theme': 'base',
