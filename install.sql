@@ -1,6 +1,5 @@
-
-DROP TABLE IF EXISTS `webim_settings`;
-CREATE TABLE `webim_settings` (
+DROP TABLE IF EXISTS webim_settings;
+CREATE TABLE webim_settings (
 	  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	  `uid` varchar(40) NOT NULL DEFAULT '',
 	  `data` text,
@@ -10,8 +9,8 @@ CREATE TABLE `webim_settings` (
 	  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `webim_histories`;
-CREATE TABLE `webim_histories` (
+DROP TABLE IF EXISTS webim_histories;
+CREATE TABLE webim_histories (
 	  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 	  `send` tinyint(1) DEFAULT NULL,
 	  `type` varchar(20) DEFAULT NULL,
@@ -27,13 +26,13 @@ CREATE TABLE `webim_histories` (
 	  `updated` date DEFAULT NULL,
 	  PRIMARY KEY (`id`),
 	  KEY `webim_history_timestamp` (`timestamp`),
-	  KEY `webim_history_to` (`to`),
-	  KEY `webim_history_from` (`from`),
+	  KEY `webim_history_to` (`to_uid`),
+	  KEY `webim_history_from` (`from_uid`),
 	  KEY `webim_history_send` (`send`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `webim_rooms`;
-CREATE TABLE `webim_rooms` (
+DROP TABLE IF EXISTS webim_rooms;
+CREATE TABLE webim_rooms (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `owner` varchar(40) NOT NULL,
       `name` varchar(40) NOT NULL,
@@ -46,8 +45,8 @@ CREATE TABLE `webim_rooms` (
       UNIQUE KEY `webim_room_name` (`name`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `webim_members`;
-CREATE TABLE `webim_members` (
+DROP TABLE IF EXISTS webim_members;
+CREATE TABLE webim_members (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `room` varchar(60) NOT NULL,
       `uid` varchar(40) NOT NULL,
@@ -57,8 +56,8 @@ CREATE TABLE `webim_members` (
       UNIQUE KEY `webim_member_room_uid` (`room`,`uid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `webim_blocked`;
-CREATE TABLE `webim_blocked` (
+DROP TABLE IF EXISTS webim_blocked;
+CREATE TABLE webim_blocked (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `room` varchar(60) NOT NULL,
       `uid` varchar(40) NOT NULL,
@@ -67,8 +66,8 @@ CREATE TABLE `webim_blocked` (
       UNIQUE KEY `webim_blocked_room_uid` (`uid`,`room`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `webim_visitors`;
-CREATE TABLE `webim_visitors` (
+DROP TABLE IF EXISTS webim_visitors;
+CREATE TABLE webim_visitors (
       `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
       `name` varchar(60) DEFAULT NULL,
       `ipaddr` varchar(60) DEFAULT NULL,
@@ -79,4 +78,29 @@ CREATE TABLE `webim_visitors` (
       PRIMARY KEY (`id`),
       UNIQUE KEY `webim_visitor_name` (`name`)
 )ENGINE=MyISAM AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS webim_buddies;
+CREATE TABLE webim_buddies (
+      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+      `uid` varchar(40) DEFAULT NULL,
+      `fid` varchar(40) DEFAULT NULL,
+      `created` datetime DEFAULT NULL,
+      UNIQUE KEY `webim_buddy_key` (`uid`, `fid`),
+      PRIMARY KEY (`id`)
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS webim_asks;
+CREATE TABLE webim_asks (
+      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+      `from_id` varchar(60) NOT NULL DEFAULT '',
+      `from_nick` varchar(100) DEFAULT NULL,
+      `to_id` varchar(60) NOT NULL DEFAULT '',
+      `to_nick` varchar(100) DEFAULT NULL,
+      `answer` int(11) NOT NULL DEFAULT '0',
+      `initiated` datetime DEFAULT NULL,
+      `answered` datetime DEFAULT NULL,
+      PRIMARY KEY (`id`),
+      UNIQUE KEY `ask_from_to` (`from_id`,`to_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 

@@ -1,8 +1,8 @@
 /*!
- * WebIM for Django @VERSION
+ * WebIM for Flask @VERSION
  * http://nextalk.im
  *
- * Copyright (c) 2015 NexTalk.IM
+ * Copyright (c) 2013 NexTalk.IM
  *
  * Released under the MIT, BSD, and GPL Licenses.
  */
@@ -23,8 +23,8 @@
 		status: path + "/webim/status",
 		setting: path + "/webim/setting",
 		history: path + "/webim/history",
-		clear: path + "/webim/clear_history",
-		download: path + "/webim/download_history",
+		clear: path + "/webim/history/clear",
+		download: path + "/webim/history/download",
 		buddies: path + "/webim/buddies",
         //room actions
 		invite: path + "/webim/room/invite",
@@ -94,7 +94,7 @@
     if(_IMC.enable_chatbtn) {
         ui.addApp("chatbtn", {
             elmentId: null,
-            chatbox: false,
+            chatbox: true,
             classRe: /webim-chatbtn/,
             hrefRe: [/chatbox\/(\d+)$/i]
         });

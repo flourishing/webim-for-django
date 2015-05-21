@@ -7,7 +7,7 @@ class Plugin(object):
     def buddies(uid):
         #TODO
         buddy = lambda i: { 
-                'id': "uid%d" % (i), 
+                'id': "%d" % (i), 
                 'nick': 'user%d' % (i), 
                 'presence': 'offline', 
                 'show': 'unavailable', 

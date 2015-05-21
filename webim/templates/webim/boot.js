@@ -1,5 +1,5 @@
 var _IMC = {
-	version: 'v5.4.2',
+	version: '5.8',
     product: 'django',
 	path: '',
 	is_login: '1',
@@ -9,6 +9,7 @@ var _IMC = {
 	setting: {},
 	menu: "",
 	enable_chatlink: true,
+	enable_chatbtn: true,
 	enable_shortcut: true,
 	enable_menu: '',
 	discussion: true,

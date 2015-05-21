@@ -1,11 +1,11 @@
 
 WEBIM_CONFIG = {
-    'version': '5.4',
+    'version': '5.8',
     'isopen': True,
     'domain': 'localhost',
     'apikey': 'public',
     'host': 'localhost',
-    'port': 8080,
+    'port': 8000,
     'emot': 'default',
     'theme': 'base',
     'opacity': 80,

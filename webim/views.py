@@ -16,7 +16,7 @@ def current_user(request):
     '''
     Demo User
     '''
-    return {'id': 'uid1', 'nick': 'user1', 
+    return {'id': '1', 'nick': 'user1', 
             'show': 'available', 
             'avatar': 'static/webim/images/male.png'}
 
@@ -139,6 +139,11 @@ def download_history(request):
     response = HttpResponse(render(request, 'webim/download_history.html', histories=histories))
     response['Content-Type'] = 'text/html;charset=utf-8'
     response['Content-Disposition'] = "attachment; filename=\"histories-%d.html\"" % time.time()
+    return response
+
+def chatbox(request):
+    to = request.GET['id']
+    response = HttpResponse(render(request, 'webim/chatbox.html'))
     return response
 
 def invite(request):
